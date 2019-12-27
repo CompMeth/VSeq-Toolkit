@@ -1,0 +1,110 @@
+################################	Config. File for VSeq-Toolkit	###############################
+#Version 1.0 #Author: Saira Afzal #Last Updated: 22-Dec-2019
+#NOTE: Each mode can be executed individually, or all 3 together or 2 & 3 together
+#######################################################################################################
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
+#General Parameters: Always set these parameters for executing any of the three MODES.
+
+#Forward and reverse file of paired end WGS/TES data
+file1= $VSeqToolkit/testDir/testData/testDataCombined.R1.fastq.gz
+file2= $VSeqToolkit/testDir/testData/testDataCombined.R2.fastq.gz
+
+#Output directory
+outDir= $VSeqToolkit/testDir/testResultsCheck/
+
+#Path to the bin scripts directory of VSeq-Toolkit
+bin= $VSeqToolkit/scripts/
+
+#Min. quality value and length after trimming, adapters forward and reverse file for trimming
+qua=20
+lenPer=50
+adapter1=GATCGGAAGAGCACACGTCTGAACTCCAGTCAC
+adapter2=AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTAGATCTCGGTGGTCGCCGTATCATT
+
+#Path to the third-party tools required
+trimmer= $VSeqToolkit/thirdPartyTools/skewer
+aligner= $VSeqToolkit/thirdPartyTools/bwa
+samtools= $VSeqToolkit/thirdPartyTools/samtools
+
+#Mode default/sensitive
+mode=default
+#######################################################################################################
+## 		            MODE 1: Contaminants Distribution Analysis              		     ##
+######################################################@@@##############################################
+#Contaminant distribution analysis true/false
+contAna=true
+
+#Path to the BWA reference index files. Before indexing concatenate all reference together in one file
+combinedRef= $VSeqToolkit/testDir/testReferenceIndex/referenceTestCombined.fa
+
+#Stringency/Specificity levels high/moderate/low/null (recommended medium/high for experimental data)
+stringencyCont=low
+
+#Threshold for specifying each read of the pair unique/multiple mapped
+UMthresholdCont=0.95
+#######################################################################################################
+##              	    MODE 2: Vector-Vector Fusion Analysis          		  	     ##
+#######################################################################################################
+#Intra Vector fusion analysis true/false
+vecVecFusion=true
+
+#Path to the BWA reference index files of vector(s). For multiple vectors concatenate all together
+vecRef= $VSeqToolkit/testDir/testReferenceIndex/vector1.fa
+
+#Stringency/Specificity levels high/moderate/low/null (recommended medium/high for experimental data)
+stringencyVec=low
+
+#Threshold for specifying each read of the pair unique/multiple mapped
+UMthresholdVec=0.95
+
+#Minimum span of each vector region
+minMapSpanVec=20
+
+#Maximum unmapped bases between fusion regions
+distVecVec=10
+
+#Maximum overlapping bases between fusion regions
+opVecVec=5
+
+#Minimum identity of fusion regions
+idenVecVec=95
+#######################################################################################################
+##           		    MODE 3: Vector-Host Fusion Analysis            			     ##
+#######################################################################################################
+#Integartion sites analysis True/False
+vecGenIS=true
+
+#Path to the BWA reference index files of vector(s). For multiple vectors concatenate all together
+vecRef= $VSeqToolkit/testDir/testReferenceIndex/vector1.fa
+
+#Provide index file after concatenating reference genome and vector(s)
+vecGenRef= $VSeqToolkit/testDir/testReferenceIndex/hg38chr22Vector1.fa
+
+#Stringency/Specificity levels high/moderate/low/null (recommended medium/high for experimental data)
+stringencyVecGen=low
+
+#Threshold for specifying a specific read as unique or multiple mapped
+UMthresholdVecGen=0.95
+
+#Minimum span of vector and genome regions
+minMapSpanVecGen=20
+
+#Maximum unmapped bases between fusion regions
+distVecGen=10
+
+#Maximum overlapping base pairs between vector and genome fusion regions
+opVecGen=5
+
+#Minimum identity of fusion regions of vector and genome
+idenVecGen=95
+
+#Range for position clustering on genomic fusion/insertion sites
+clusterRange=3
+
+#Path to the annotation information table - Refseq
+annoTable= $VSeqToolkit/testDir/testReferenceIndex/refSeqUCSCTablehg38.txt
+
+#Path to bedtools
+bedtools= $VSeqToolkit/thirdPartyTools/bedtools
+#######################################################################################################
+#######################################################################################################

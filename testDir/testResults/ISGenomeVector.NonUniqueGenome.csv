@@ -1,0 +1,1 @@
+Chr,GenomicPosition,StrandGenomic,VectorName,VectorPosition,StrandVector,ReadID,Sequence,SpanGenomic,SpanVector,Feature1_Genomic,Feature2_Vector,IdentityPercGenomic,IdentityPercVector,OverlapFusion,DistanceFusion,SequenceCount,RefSeqID,GeneStrand,GeneName,GeneLength,DisttoTSS,Upstream,Downstream,IntronExon

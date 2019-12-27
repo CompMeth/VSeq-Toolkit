@@ -1,0 +1,4 @@
+Reference,size<=50, size>50.<=100, size>100.<=200, size>200.<=500, size>500.<=1000, size>1000,
+chr,0,0,0,24,0,1
+contaminants_All,0,0,0,10,0,0
+vector,0,0,0,22,0,0
