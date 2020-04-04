@@ -207,7 +207,7 @@ awk -F"\t" '{gsub(/AS:i:/,"",$0)}1' OFS="\t" alignment.17.sam.A | awk -F"\t" '{g
  awk -F"\t" '{gsub(/NM:i:/,"",$0)}1' OFS="\t" alignment.18.sam.B |awk '{print $0 "\t" ((($9-$11)/$9)*100) "\t" (((($10+$14)-$12)/($10+$14))*100)}' | cut -f1-10,14- | awk -v idenVecGen=$idenVecGen '($17>=idenVecGen && $18>=idenVecGen)' > alignment.19.sam.A
 
 #select columns and rearrange columns 
-awk '{if ($2 ~ /chr/) print $2 "\t" $3 "\t" $4 "\t" $5 "\t" $7 "\t" $6 "\t" $1 "\t "$8 "\t" $9 "\t" $10 "\t" $13 "\t" $15 "\t" $14 "\t" $16 "\t" $17 "\t" $18 "\t" $11 "\t" $12; else print $5 "\t" $7 "\t" $6 "\t" $2 "\t" $3 "\t" $4 "\t" $1 "\t "$8 "\t" $10 "\t" $9 "\t" $14 "\t" $16 "\t" $13 "\t" $15 "\t" $18 "\t" $17 "\t" $11 "\t" $12 }' alignment.19.sam.A  | awk '($11<=1 && $13<=1)' > alignment.20.sam.A
+awk '{if ($2 ~ /chr/) print $2 "\t" $3 "\t" $4 "\t" $5 "\t" $7 "\t" $6 "\t" $1 "\t "$8 "\t" $9 "\t" $10 "\t" $13 "\t" $15 "\t" $14 "\t" $16 "\t" $17 "\t" $18 "\t" $11 "\t" $12; else print $5 "\t" $7 "\t" $6 "\t" $2 "\t" $3 "\t" $4 "\t" $1 "\t "$8 "\t" $10 "\t" $9 "\t" $14 "\t" $16 "\t" $13 "\t" $15 "\t" $18 "\t" $17 "\t" $11 "\t" $12 }' alignment.19.sam.A  | awk '($11<=1 && $13<=1)' | sort -k8,8 -u > alignment.20.sam.A
 ###########################
 echo " "
 echo "Duplicate reads removal in process..."
