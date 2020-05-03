@@ -76,7 +76,7 @@ my $qua = $config->get_value("qua");
 my $lenPer = $config->get_value("lenPer");
 my $adapter1 = $config->get_value("adapter1");
 my $adapter2 = $config->get_value("adapter2");
-system (" if cd $outDir; then echo $outDir; else exit 1; fi\n");  $p=$?>>8; if ($p == 1) { exit };
+
 system "echo  ..............................................";
 print  "\n\n   QUALITY CONTROL \n\n";
 
