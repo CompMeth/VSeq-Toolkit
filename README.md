@@ -1,5 +1,5 @@
 # README #
-(VSeq-Toolkit 1.0)
+(VSeq-Toolkit 1.1)
 
 VSeq-Toolkit is designed to analyze viral vector gene therapy sequencing data TES/WGS.
 
@@ -57,4 +57,4 @@ $VSeqToolkit/config.txt
 ```
 VSeq-Toolkit only for research purpose
 
-* Contact: saira.afzal@nct-heidelberg.de
+* Contact: saira.afzal@nct-heidelberg.de, saira.afzal@genewerk.de
