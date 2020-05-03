@@ -1,5 +1,5 @@
 # README #
-(VSeq-Toolkit 1.1)
+(VSeq-Toolkit 1.0)
 
 VSeq-Toolkit is designed to analyze viral vector gene therapy sequencing data TES/WGS.
 
