@@ -199,6 +199,8 @@ echo "Generating final result files for vector-vector fusions..."
 mv alignmentV.22.sam.A alignmentV.23.sam.A
 
 #split file into multiple based on vector
+if [ -s "$outDir/alignmentV.23.sam.A" ]; then
+rm -f *.IntraVector_BreakPoints*
 sort -k4,4 -k1,1 -k2,2n $outDir/alignmentV.23.sam.A | cut -f1-10,12,14- | awk '{print>$4".IntraVector_BreakPoints"}'
 sed -i 's/\t/,/g' *.IntraVector_BreakPoints
 echo "VectorName,BreakPointPosition1,Strand1,VectorName,BreakPointPosition2,Strand2,ReadID,Sequence,Span1,Span2,Feature1,Feature2,IdentityPerc1,IdentityPerc2,OverlapFusion,DistanceFusion" > $outDir/header.fusion
@@ -208,6 +210,10 @@ for f in *IntraVector_BreakPoints ; do cat header.fusion $f >>$f.csv; done
 
 mv alignmentV.21.sam.temp.ids  vecToRemoveIDS
 #mv alignmentV.3.sam  alignmentV_vecVecFusion.sam
+else 
+echo " "
+echo "NO VECTOR-VECTOR FUSION READS FOUND."
+fi
 echo " "
 echo "    Vector-Vector Fusion Analysis Finished"
 echo "..........................................."
