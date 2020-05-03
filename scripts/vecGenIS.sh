@@ -221,8 +221,6 @@ $samtools view  alignment.21.sam.A.sorted.nodup.bam  |cut -f1 |sort | uniq > ali
 awk 'NR==FNR{tgts[$1]; next} $7 in tgts' alignment.21.sam.A.sorted.nodup.ids alignment.20.sam.A > alignment.22.sam.A 
 
 #split file into multiple based on vector
-if [ -s "$outDir/alignment.22.sam.A" ]; then
-rm -f *.split*
 echo " "
 echo "Clustering and annotation processing..."
 sort -k4,4 -k1,1 -k2,2n alignment.22.sam.A  | awk '{print>$4".split"}'
@@ -265,17 +263,14 @@ head -1 ISGenomeVector.csv >  ISGenomeVector.NonUniqueGenome.csv
 awk -F ',' '($11=="Non-uniqueHit")' ISGenomeVector.csv >> ISGenomeVector.NonUniqueGenome.csv
 
 
-echo -e "Chr,GenomicPosition,StrandGenomic,VectorName,VectorPosition,StrandVector,ReadID,Sequence,SpanGenomic,SpanVector,OverlapFusion,DistanceFusion" >  ISGenomeVector.Unclustered.csv
-less  alignment.22.sam.A | cut -f1-10,17- | sed 's/\t/,/g' >>  ISGenomeVector.Unclustered.csv
-else
-echo " "
-echo "NO GENOME-VECTOR FUSIONS OR IS FOUND."
-fi
+echo -e "Chr,GenomicPosition,StrandGenomic,VectorName,VectorPosition,StrandVector,ReadID,Sequence,SpanGenomic,SpanVector,Feature1_Genomic,Feature2_Vector,IdentityPercGenomic,IdentityPercVector,OverlapFusion,DistanceFusion" >  ISGenomeVector.Unclustered.csv
+less  alignment.22.sam.A | cut -f1-10,12,14- | sed 's/\t/,/g' >>  ISGenomeVector.Unclustered.csv
+
 #mv alignment.3.sam alignment_vecGenFusion.sam
 echo " "
 echo "     Host-Vector Fusion Analysis Finished"
 echo "..........................................."
-rm -f  ContAnalysis_WithoutContaminantsReadPairs.R1.fastq.gz ContAnalysis_WithoutContaminantsReadPairs.R2.fastq.gz  alignment_vecGenFusion.sam  ext* eext* vecToRemoveIDS anno* alignment.* *UniqueHit.split.txt* final* *.bed temp2.fastq temp1.fastq  file* *split  *txt* comb
+rm -f  ContAnalysis_WithoutContaminantsReadPairs.R1.fastq.gz ContAnalysis_WithoutContaminantsReadPairs.R2.fastq.gz  alignment_vecGenFusion.sam  ext* eext* vecToRemoveIDS anno* alignment.* *UniqueHit.split.txt* final* *.bed temp2.fastq temp1.fastq  file* *split  *txt*
 echo "Host-Vector Fusion Analysis finished" >> log
 date >> log
 ###########################
