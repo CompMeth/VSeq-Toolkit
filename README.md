@@ -57,4 +57,4 @@ $VSeqToolkit/config.txt
 ```
 VSeq-Toolkit only for research purpose
 
-* Contact: saira.afzal@nct-heidelberg.de,saira.afzal@genewerk.de
+* Contact:  saira.afzal@nct-heidelberg.de, saira.afzal@genewerk.de

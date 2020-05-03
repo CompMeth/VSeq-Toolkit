@@ -28,5 +28,4 @@ do
 	awk '(($9=="-" || $9=="+" ))' file8 |awk '($11=="-" || $11=="+")'|  awk '{print $1","$2","$3","$12","$5","$6","$7","$8","" "","$10","" "","""}'  >> file9
 cut -d ',' -f1,2 file9 | sed 's/,/\t/g' | grep -v -Fwf - file2 | awk '{print $1, $2, $4, $5, "NA", "NA", "NA", "NA", "NA", "NA", "NA", "NA"}' OFS="," | cat file9 - > $f.anno
 done
-
 #This sript contains modified version of a part of script from published method Afzal S et al. Mol Ther Nucleic Acid. 2017;6(March):133-139. doi:10.1016/j.omtn.2016.12.001

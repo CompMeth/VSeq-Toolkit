@@ -20,7 +20,6 @@ date >> log
 echo " "
 echo "Alignment with viral vector reference in process..."
 echo " "
-
 echo " "
 if [[ $contCheck == *true* ]]; then
         $aligner mem -M -t 10 -T 15 $vecRef $outDir/ContAnalysis_WithoutContaminantsReadPairs.R1.fastq.gz  $outDir/ContAnalysis_WithoutContaminantsReadPairs.R2.fastq.gz > $outDir/alignmentV.sam

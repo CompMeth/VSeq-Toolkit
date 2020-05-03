@@ -18,7 +18,6 @@ bin=${17}
 vecVecFusionCheck=${18}
 mode=${19}
 contCheck=${20}
-
 cd $outDir
 echo "Host-Vector Fusion Analysis started" >> log
 date >> log
