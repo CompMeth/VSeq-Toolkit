@@ -1,6 +1,9 @@
 # README #
 (VSeq-Toolkit 1.1)
 
+Please cite the research article, if you use VSeq-Toolkit: Saira Afzal et al., 2020. VSeq-Toolkit: Comprehensive Computational Analysis of Viral Vectors in Gene Therapy. Molecular Therapy - Methods & Clinical Development, Volume 17, 752 - 757. DOI; https://doi.org/10.1016/j.omtm.2020.03.024
+##
+##
 VSeq-Toolkit is designed to analyze viral vector gene therapy sequencing data TES/WGS.
 
 It has three modes Mode1;Contaminant Analysis, Mode2;Vector-Vector Fusion, Mode3;Vector-Host Fusion.
@@ -57,4 +60,4 @@ $VSeqToolkit/config.txt
 ```
 VSeq-Toolkit only for research purpose
 
-* Contact:  saira.afzal@nct-heidelberg.de, saira.afzal@genewerk.de
+* Contact: saira.afzal@genewerk.de
