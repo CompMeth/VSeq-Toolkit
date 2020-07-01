@@ -60,4 +60,4 @@ $VSeqToolkit/config.txt
 ```
 VSeq-Toolkit only for research purpose
 
-* Contact: saira.afzal@genewerk.de
+* Contact: saira.afzal@genewerk.de, saira-afzal@outlook.com
